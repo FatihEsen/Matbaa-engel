@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f5f1e8;
+  --paper-elevated: #faf7f0;
+  --paper-shaded: #e8e1d1;
+  --paper-clue: #ebe4d4;
+  --paper-clue-hover: #e1d8c4;
+  --ink: #171614;
+  --ink-secondary: #3f3b35;
+  --ink-muted: #655f55;
+  --rule: #c8bfa9;
+  --rule-strong: #1c1917;
+  --crimson: #b42318;
+  --crimson-hover: #911b12;
+  --ochre-soft: #fef3c7;
+  --ochre-cell: #fde68a;
+  --verified: #15803d;
+  --verified-bg: #f0fdf4;
+  --error: #b91c1c;
+  --error-bg: #fef2f2;
+}
+
+@layer base {
+  html {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--paper);
+    background-image: radial-gradient(rgba(23, 22, 20, 0.035) 0.75px, transparent 0.75px);
+    background-size: 16px 16px;
+    color: var(--ink);
+  }
+}
+
+.font-display {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-editorial {
+  font-family: 'Source Serif 4', Georgia, serif;
+}
+
+.font-sans-grid {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+.font-mono-tabular {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.newspaper-double-rule {
+  border-top: 2px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule-strong);
+  height: 5px;
+}
+
+.newspaper-rule-bottom {
+  border-bottom: 1px solid var(--rule);
+}
+
+.cell-error-slash {
+  background-image: linear-gradient(
+    -45deg,
+    transparent calc(50% - 1px),
+    rgba(185, 28, 28, 0.35) calc(50% - 1px),
+    rgba(185, 28, 28, 0.35) calc(50% + 1px),
+    transparent calc(50% + 1px)
+  );
+}
+
+@keyframes cellPop {
+  0% {
+    transform: scale(0.92);
+  }
+  60% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-cell-pop {
+  animation: cellPop 140ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-cell-pop {
+    animation: none;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dedicated Printable Broadsheet Styles */
+.print-only {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    background-image: none !important;
+    color: #000000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+}

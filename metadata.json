@@ -1,0 +1,6 @@
+{
+  "name": "Matbaa Çengel",
+  "description": "Klasik Türk gazetesi baskısı estetiğinde, resimli ipuçları, Türkçe Q klavye, ipucu/kontrol araçları, çok dilli arayüz ve yazdırılabilir baskı modu sunan küratörlü çengel bulmaca uygulaması.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
